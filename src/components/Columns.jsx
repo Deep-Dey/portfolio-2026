@@ -28,7 +28,12 @@ export default function Columns() {
         </h2>
         <p className="par dropcap">A strong project is made by close collaboration. I design, develop and deploy software that holds up in production.</p>
         <p className="par">Like a craftsman, I like to start from raw requirements and give them shape: an API, an interface, a pipeline that runs on its own.</p>
-        <a className="btn-ellipse btn-ellipse--wide" href="/work/">ALL WORK</a>
+        <a className="btn-ellipse btn-ellipse--wide btn-swap" href="/work/">
+          <span className="btn-swap__text">ALL WORK</span>
+          <svg className="btn-swap__arrow" viewBox="0 0 200 60" aria-hidden="true" focusable="false">
+            <path d="M2 30H197M168 4C174 18 184 27 198 30C184 33 174 42 168 56" fill="none" stroke="currentColor" strokeWidth="3" vectorEffect="non-scaling-stroke" />
+          </svg>
+        </a>
       </div>
     </div>
   )
