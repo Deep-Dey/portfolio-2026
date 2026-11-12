@@ -1,5 +1,5 @@
 import puppeteer from 'puppeteer-core'
-import { writeFileSync } from 'node:fs'
+import { writeFileSync, mkdirSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -62,5 +62,10 @@ icoSizes.forEach((s, i) => {
   offset += p.length
 })
 writeFileSync(resolve(root, 'public/favicon.ico'), Buffer.concat([header, entries, ...icoSizes.map((s) => pngs[s])]))
-console.log('icons written:', Object.keys(pngs).join(','))
+// Brand logo for CDN use: https://deepdey.dev/assets/logo/deep-dey-logo[-<size>].png
+const logoDir = resolve(root, 'public/assets/logo')
+mkdirSync(logoDir, { recursive: true })
+for (const s of [64, 256, 512, 1024, 2048]) writeFileSync(resolve(logoDir, `deep-dey-logo-${s}.png`), await shot(s))
+writeFileSync(resolve(logoDir, 'deep-dey-logo.png'), await shot(1024))
+console.log('icons written:', Object.keys(pngs).join(','), '+ logo 64,256,512,1024,2048')
 await browser.close()

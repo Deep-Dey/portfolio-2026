@@ -8,7 +8,10 @@ const socials = [
 export default function Footer() {
   return (
     <footer className="foot">
-      <span className="brand">DEEP DEY©{new Date().getFullYear()}</span>
+      <span className="brand">
+        DEEP DEY©
+        <img className="brand__logo" src="/assets/logo/deep-dey-logo-64.png" width="64" height="64" alt="Deep Dey logo" />
+      </span>
       <a className="mail" href="mailto:mail@deepdey.dev">mail@deepdey.dev</a>
       <nav aria-label="Elsewhere">
         {socials.map(([label, href]) => <a key={label} href={href}>{label}</a>)}

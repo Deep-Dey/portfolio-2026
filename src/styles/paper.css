@@ -247,6 +247,8 @@ main { padding-top: var(--header-h); }
 .foot nav { justify-self: end; justify-content: flex-end; }
 .foot .brand { font-family: var(--font-display); font-stretch: var(--display-stretch); font-variation-settings: "wdth" 50, "opsz" 144; font-weight: var(--display-weight); font-size: var(--text-md); white-space: nowrap; }
 .foot .mail { font-size: var(--text-sm); }
+.foot .brand { display: inline-flex; align-items: center; gap: 0.45em; }
+.brand__logo { width: 1.1em; height: 1.1em; display: block; }
 .foot nav { display: flex; flex-wrap: wrap; align-items: center; font-family: var(--font-display); font-stretch: var(--display-stretch); font-variation-settings: "wdth" 50, "opsz" 144; font-weight: var(--display-weight); font-size: var(--text-sm); }
 .foot nav a { text-decoration: none; }
 .foot nav a:hover, .foot .mail:hover { text-decoration: underline; text-underline-offset: 0.18em; }

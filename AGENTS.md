@@ -33,11 +33,15 @@ node scripts/make-icons.mjs   # favicon.ico, favicon-32, apple-touch-icon, icon-
 node scripts/make-og.mjs      # public/og-image.jpg (1200x630 social card)
 ```
 
+## Brand logo (CDN)
+
+`scripts/make-icons.mjs` writes the favicon set and the logo to `public/assets/logo/`: `deep-dey-logo.png` (1024px) and `deep-dey-logo-{64,256,512,1024,2048}.png`. Public URLs: `https://deepdey.dev/assets/logo/deep-dey-logo.png` etc. `vercel.json` serves them with a one-week cache and `Access-Control-Allow-Origin: *`. The footer uses the 64px one. Keep these filenames stable.
+
 ## Pages and navigation
 
 - `/` is the one-page site; `/work` renders `src/components/WorkPage.jsx` (placeholder for the full project page). Routing is a pathname check in `App.jsx` (`isWorkPage()` from `Header.jsx`); no router dependency.
 - Menu links: Index `/#top`, Work `/work`, About `/#about`, Contact `/#contact`. The struck-through item follows scroll position on `/` (Contact once the page bottom is reached) and is Work on `/work`.
-- Direct visits to `/work` need an SPA fallback: `vercel.json` (Vercel) and `public/.htaccess` (Apache/Hostinger) rewrite unknown paths to `index.html`.
+- Deployed on **Vercel**. Both routes are real prerendered files (`dist/index.html`, `dist/work/index.html`), so no SPA rewrite is needed. `vercel.json` sets the build/output, `trailingSlash: true` (so `/work` 308-redirects to the canonical `/work/`) and cache headers (`/assets/*` immutable, `/images` and `/projects` one week). `public/.htaccess` is only for an Apache host and is ignored by Vercel.
 
 ## Adding a project
 
