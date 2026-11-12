@@ -1,0 +1,10 @@
+import puppeteer from 'puppeteer-core'
+const b = await puppeteer.launch({ executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe', headless: true })
+const p = await b.newPage()
+await p.setViewport({ width: 1440, height: 900 })
+await p.goto('http://localhost:5173/', { waitUntil: 'networkidle0' })
+await p.evaluate(async () => { await document.fonts.ready; document.querySelector('.stamp').scrollIntoView({ block: 'center' }) })
+await new Promise(r => setTimeout(r, 900))
+await p.screenshot({ path: 'D:/DEEP/portfolio/.hallmark/new/stamp-check.png' })
+await b.close()
+console.log('done')

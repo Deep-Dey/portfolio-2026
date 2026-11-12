@@ -1,0 +1,32 @@
+import puppeteer from 'puppeteer-core'
+const b = await puppeteer.launch({ executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe' })
+const pg = await b.newPage()
+pg.on('pageerror', (e) => console.log('ERR', e.message))
+await pg.setViewport({ width: 1440, height: 900 })
+await pg.goto('http://localhost:5173/', { waitUntil: 'networkidle0' })
+const wait = (ms) => new Promise((r) => setTimeout(r, ms))
+const state = () => pg.evaluate(() => ({
+  open: document.querySelector('.menu').classList.contains('open'),
+  active: document.querySelector('.menu nav a.is-active')?.textContent,
+  focused: document.activeElement?.getAttribute('aria-label') || document.activeElement?.textContent,
+}))
+await pg.click('.burger'); await wait(180)
+await pg.screenshot({ path: '.hallmark/new/menu-anim.png' })
+await wait(1200)
+await pg.screenshot({ path: '.hallmark/new/menu-index.png' })
+console.log('top', await state())
+await pg.keyboard.press('Escape'); await wait(800)
+console.log('esc', await state())
+await pg.evaluate(() => document.querySelector('#about').scrollIntoView()); await wait(500)
+await pg.click('.burger'); await wait(1400)
+await pg.screenshot({ path: '.hallmark/new/menu-about.png' })
+console.log('about', await state())
+await pg.click('.burger'); await wait(120)
+await pg.screenshot({ path: '.hallmark/new/burger-mid.png', clip: { x: 1340, y: 0, width: 100, height: 68 } })
+await wait(800)
+await pg.screenshot({ path: '.hallmark/new/burger-closed.png', clip: { x: 1340, y: 0, width: 100, height: 68 } })
+console.log('close', await state())
+await pg.setViewport({ width: 375, height: 812 }); await wait(300)
+await pg.click('.burger'); await wait(1400)
+await pg.screenshot({ path: '.hallmark/new/menu-375.png' })
+await b.close()

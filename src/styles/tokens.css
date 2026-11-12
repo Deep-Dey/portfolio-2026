@@ -1,0 +1,37 @@
+:root {
+  /* paper portfolio palette */
+  --color-paper: rgb(205, 198, 190);
+  --color-paper-2: rgb(211, 203, 194);
+  --color-ink: rgb(29, 29, 27);
+  --color-rust: rgb(192, 63, 19);
+  --color-rule: rgb(29 29 27 / 0.42);
+  --color-stamp: rgb(229, 223, 213);
+  --color-sun: rgb(238, 125, 79);
+
+  --font-display: "Roboto Serif", "Times New Roman", serif;
+  --font-body: "Newsreader", Georgia, serif;
+  --font-mark: "Pirata One", "Times New Roman", serif;
+  --font-mono: "Courier New", ui-monospace, monospace;
+
+  --display-stretch: 50%;
+  --display-weight: 700;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.375rem;
+  --text-xl: 2rem;
+  --text-huge: clamp(3.5rem, 8.5vw, 8.5rem);
+  --text-giant: clamp(4rem, 11vw, 11rem);
+  --text-counter: clamp(5rem, 9vw, 9rem);
+
+  --header-h: 68px;
+  --gutter: 40px;
+  --container: 1440px;
+
+  --rule-hair: 1px;
+
+  --dur-short: 220ms;
+  --dur-long: 600ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}

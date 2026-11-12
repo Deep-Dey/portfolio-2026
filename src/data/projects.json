@@ -1,0 +1,88 @@
+[
+  {
+    "slug": "wb-handloom",
+    "title": "WB HANDLOOM PORTAL",
+    "tag": "GOV",
+    "image": "/projects/wb-handloom.jpg",
+    "alt": "Home page of the West Bengal Handloom and Khadi Weavers Financial Benefit Scheme portal",
+    "description": "The Government of West Bengal portal where handloom weavers and khadi societies apply for financial benefit schemes. Spring Boot, PostgreSQL and vanilla JS.",
+    "links": [
+      { "label": "Live site", "url": "https://handloom.wb.gov.in/" }
+    ],
+    "openSource": false,
+    "featured": true,
+    "spotlight": false
+  },
+  {
+    "slug": "anuprerna",
+    "title": "ANUPRERNA",
+    "tag": "E-COM",
+    "image": "/projects/anuprerna.jpg",
+    "alt": "Home page of Anuprerna, an online store for handwoven artisanal textiles",
+    "description": "An online store and B2B platform for handwoven textiles from West Bengal artisans: fabrics, apparel and homeware, with swatch orders and bulk customisation.",
+    "links": [
+      { "label": "Live site", "url": "https://anuprerna.com/" }
+    ],
+    "openSource": false,
+    "featured": true,
+    "spotlight": false
+  },
+  {
+    "slug": "qubit-nexus",
+    "title": "QUBIT NEXUS",
+    "tag": "LLM",
+    "image": "/projects/qubit-nexus.jpg",
+    "alt": "Sign-in page of Qubit Nexus, a chat-with-your-data platform",
+    "description": "Chat with your data: LangChain agents answer analytics questions in SQL and build charts in Python, over Excel, CSV, PDF and PostgreSQL sources.",
+    "links": [
+      { "label": "Live site", "url": "https://ai.qubitnexus.com/" }
+    ],
+    "openSource": false,
+    "featured": false,
+    "spotlight": true
+  },
+  {
+    "slug": "bmx-transmission",
+    "title": "BMX TRANSMISSION",
+    "tag": "NPM",
+    "image": "/projects/angular2.jpg",
+    "alt": "Angular artwork for the bmx-transmission package",
+    "description": "An Angular utility library for API calls, with hooks for pre-execute, post-execute, success and failure.",
+    "links": [
+      { "label": "npm", "url": "https://www.npmjs.com/package/bmx-transmission" },
+      { "label": "GitHub", "url": "https://github.com/bloomscorp/bmx-transmission" }
+    ],
+    "openSource": true,
+    "featured": true,
+    "spotlight": false
+  },
+  {
+    "slug": "bmx-onepiece",
+    "title": "BMX ONEPIECE",
+    "tag": "OSS",
+    "image": "/projects/express.jpg",
+    "alt": "Express artwork for the bmx-onepiece starter",
+    "description": "An Express and MongoDB starter with user management, security and logging already wired and documented.",
+    "links": [
+      { "label": "GitHub", "url": "https://github.com/bloomscorp/bmx-onepiece" }
+    ],
+    "openSource": true,
+    "featured": true,
+    "spotlight": false
+  },
+  {
+    "slug": "python-sorter",
+    "title": "PYTHON SORTER",
+    "tag": "PYPI",
+    "image": "/projects/python.jpg",
+    "alt": "Python artwork for the python-sorter package",
+    "description": "A Python library that sorts with several algorithms and reports how long each one took.",
+    "links": [
+      { "label": "PyPI", "url": "https://pypi.org/project/python-sorter" },
+      { "label": "GitHub", "url": "https://github.com/Deep-Dey/python-sorter" }
+    ],
+    "openSource": true,
+    "featured": true,
+    "spotlight": false
+  }
+]

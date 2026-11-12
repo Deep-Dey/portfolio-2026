@@ -1,0 +1,13 @@
+{
+  "scanned": "2026-11-12",
+  "findings": {
+    "signals": "none: empty project (only .devin/ and .hallmark/old/ source material)",
+    "fonts": "none",
+    "palette": "none",
+    "motion": "none",
+    "spacing": "none",
+    "framework": "none (Vite + React scaffolded by this build)"
+  },
+  "preserve": [],
+  "introduce": ["shape (conversational faq)", "theme (lumen)", "gates", "hero discipline", "slots"]
+}

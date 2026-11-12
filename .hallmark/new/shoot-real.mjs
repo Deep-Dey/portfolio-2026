@@ -1,0 +1,13 @@
+import puppeteer from "puppeteer-core";
+const b = await puppeteer.launch({ executablePath: "C:/Program Files/Google/Chrome/Application/chrome.exe", args: ["--headless=new"], defaultViewport: { width: 1440, height: 900 } });
+const pg = await b.newPage();
+await pg.goto("http://localhost:5173/", { waitUntil: "networkidle0" });
+await pg.evaluate(() => document.fonts.ready);
+await new Promise(r => setTimeout(r, 600));
+await pg.screenshot({ path: "D:/DEEP/portfolio/.hallmark/new/rail-json.png" });
+const y = await pg.evaluate(() => document.querySelector(".cols").getBoundingClientRect().top + scrollY - 68);
+await pg.evaluate(v => scrollTo(0, v), y);
+await new Promise(r => setTimeout(r, 500));
+await pg.screenshot({ path: "D:/DEEP/portfolio/.hallmark/new/columns-json.png" });
+console.log("cols:", await pg.evaluate(() => document.querySelectorAll(".rail__col").length));
+await b.close();

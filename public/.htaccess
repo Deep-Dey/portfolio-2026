@@ -1,0 +1,18 @@
+# Trailing-slash canonicalisation for /work (exact match only)
+RedirectMatch 301 ^/work$ /work/
+
+# Caching
+<IfModule mod_headers.c>
+  # Fingerprinted Vite output (the only js/css files): immutable
+  <FilesMatch "\.(js|css)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  # Images, icons and the OG card
+  <FilesMatch "\.(webp|png|jpg|ico)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+  # HTML, sitemaps, robots/llms, manifest
+  <FilesMatch "\.(html|xml|txt|webmanifest)$">
+    Header set Cache-Control "public, max-age=3600"
+  </FilesMatch>
+</IfModule>

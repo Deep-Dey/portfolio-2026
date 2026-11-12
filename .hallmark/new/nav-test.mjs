@@ -1,0 +1,31 @@
+import puppeteer from 'puppeteer-core'
+const b = await puppeteer.launch({ executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe' })
+const pg = await b.newPage()
+pg.on('pageerror', (e) => console.log('ERR', e.message))
+await pg.setViewport({ width: 1440, height: 900 })
+const wait = (ms) => new Promise((r) => setTimeout(r, ms))
+const active = () => pg.evaluate(() => document.querySelector('.menu nav a.is-active')?.textContent)
+await pg.goto('http://localhost:4173/', { waitUntil: 'networkidle0' })
+console.log('load top:', await active())
+for (const label of ['About', 'Contact', 'Index']) {
+  await pg.click('.burger'); await wait(1300)
+  await pg.evaluate((l) => [...document.querySelectorAll('.menu nav a')].find((a) => a.textContent === l).click(), label)
+  await wait(900)
+  console.log(`clicked ${label} ->`, await active(), 'scrollY', await pg.evaluate(() => Math.round(scrollY)))
+}
+for (const id of ['about', 'record']) {
+  await pg.evaluate((i) => document.querySelector(i === 'record' ? '.record' : '#' + i).scrollIntoView(), id)
+  await wait(300)
+  console.log(`scrolled to ${id} ->`, await active())
+}
+await pg.evaluate(() => window.scrollTo(0, 0)); await wait(300)
+console.log('scrolled to top ->', await active())
+await pg.click('.burger'); await wait(1300)
+await Promise.all([pg.waitForNavigation({ waitUntil: 'networkidle0' }), pg.evaluate(() => [...document.querySelectorAll('.menu nav a')].find((a) => a.textContent === 'Work').click())])
+console.log('work page:', pg.url(), '->', await active(), await pg.evaluate(() => document.querySelector('.work-page__head')?.textContent))
+await pg.screenshot({ path: '.hallmark/new/work-page.png' })
+await pg.click('.burger'); await wait(1300)
+await Promise.all([pg.waitForNavigation({ waitUntil: 'networkidle0' }), pg.evaluate(() => [...document.querySelectorAll('.menu nav a')].find((a) => a.textContent === 'About').click())])
+await wait(800)
+console.log('from work -> about:', pg.url(), '->', await active(), 'aboutTop', await pg.evaluate(() => Math.round(document.getElementById('about').getBoundingClientRect().top)))
+await b.close()

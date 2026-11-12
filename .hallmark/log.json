@@ -1,0 +1,31 @@
+[
+ {
+  "shape": "conversational faq",
+  "theme": "lumen (lumen: night)",
+  "axes": "dark/roman-serif/warm, posture restrained",
+  "hero": "ledge",
+  "nav": "masthead",
+  "footer": "statement",
+  "imagery": "photographs, user's own portrait",
+  "photos": [],
+  "entry": "one page, five question sections, index of work, blueprint career-path signature",
+  "fingerprint": "faq questions / ledge hero / masthead / statement footer / rows+index / diagram wells",
+  "sections": [
+   "hero (ledge, blueprint career path)",
+   "what do you build (hairline rows)",
+   "what have you shipped (index)",
+   "how does bmx-transmission work (path diagram well)",
+   "where are you based (split, portrait, live time)",
+   "footer (statement)"
+  ],
+  "signature": "the career path drawn as a hairline diagram inside a blueprint-grid well",
+  "waived": [
+   "38iii rose verb (lumen signature)",
+   "47c blueprint grid (theme geometry)",
+   "dismissed 28a portrait lazy below fold"
+  ],
+  "prompt": "Deep Dey personal portfolio, full stack and LLM engineer, Kolkata",
+  "date": "2026-11-12",
+  "mode": "build"
+ }
+]
