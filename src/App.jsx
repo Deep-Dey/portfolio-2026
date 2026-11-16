@@ -53,6 +53,15 @@ export default function App({ path: initialPath = '/' }) {
     setPath(pathname)
   }, [])
 
+  const navigate = useCallback((href) => {
+    const url = new URL(href, window.location.href)
+    if (normPath(url.pathname) !== normPath(pathRef.current)) { applyRoute(url.pathname, url.hash, true); return }
+    if (url.href !== window.location.href) window.history.pushState({}, '', url.pathname + url.hash)
+    const el = url.hash && document.getElementById(url.hash.slice(1))
+    if (el) el.scrollIntoView()
+    else window.scrollTo(0, 0)
+  }, [applyRoute])
+
   const beginTear = useCallback((target, push) => {
     busy.current = true
     pending.current = { ...target, push }
@@ -131,7 +140,7 @@ export default function App({ path: initialPath = '/' }) {
 
   return (
     <>
-      <Header path={path} />
+      <Header path={path} onNavigate={navigate} />
       <main id="top">
         {work ? (
           <WorkPage />

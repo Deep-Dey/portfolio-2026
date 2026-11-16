@@ -30,11 +30,12 @@ function currentSection() {
   return active
 }
 
-export default function Header({ path = '/' }) {
+export default function Header({ path = '/', onNavigate = () => {} }) {
   const work = isWorkPath(path)
   const [open, setOpen] = useState(false)
   const [headOpen, setHeadOpen] = useState(false)
   const [active, setActive] = useState(work ? '/work/' : '/#top')
+  const [shown, setShown] = useState(active)
   const btnRef = useRef(null)
   const menuRef = useRef(null)
   const edgeRef = useRef(null)
@@ -76,7 +77,11 @@ export default function Header({ path = '/' }) {
       window.removeEventListener('resize', onResize)
       ctx.revert()
     }
-  }, [active])
+  }, [shown])
+
+  useEffect(() => {
+    if (!open && !headOpen) setShown(active)
+  }, [active, open, headOpen])
 
   useEffect(() => {
     const menu = menuRef.current
@@ -172,10 +177,15 @@ export default function Header({ path = '/' }) {
             <a
               key={href}
               href={href}
-              className={active === href ? 'is-active' : undefined}
-              aria-current={active === href ? 'location' : undefined}
+              className={shown === href ? 'is-active' : undefined}
+              aria-current={shown === href ? 'location' : undefined}
               tabIndex={open ? 0 : -1}
-              onClick={() => { setActive(href); setOpen(false) }}
+              onClick={(e) => {
+                if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
+                e.preventDefault()
+                onNavigate(href)
+                setOpen(false)
+              }}
             ><span className="menu__line"><span className="menu__line-in">{label}</span></span></a>
           ))}
         </nav>
