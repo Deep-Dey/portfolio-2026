@@ -1,0 +1,12 @@
+import puppeteer from 'puppeteer-core'
+const b = await puppeteer.launch({ executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe', args: ['--headless=new'] })
+const p = await b.newPage()
+await p.setViewport({ width: 1440, height: 800 })
+await p.goto('http://localhost:5175/work/', { waitUntil: 'networkidle0' })
+await new Promise(r=>setTimeout(r,1800))
+await p.mouse.move(700, 400)
+await p.mouse.wheel({ deltaY: 600 })
+await new Promise(r=>setTimeout(r,500))
+console.log(await p.evaluate(() => window.scrollX))
+await p.screenshot({ path: '.shots/work-wheeled.png' })
+await b.close()

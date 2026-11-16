@@ -62,9 +62,9 @@ function ribbon(seed) {
 
 const MENU_RIBBON = ribbon(67)
 
-export function MenuTear({ ref }) {
+export function MenuTear({ ref, horizontal = false }) {
   return (
-    <svg ref={ref} className="tear__edge menu__edge" viewBox={`0 0 ${EDGE_W} 240`} preserveAspectRatio="none" focusable="false" aria-hidden="true">
+    <svg ref={ref} className={`tear__edge menu__edge${horizontal ? ' menu__edge--x' : ''}`} viewBox={`0 0 ${EDGE_W} 240`} preserveAspectRatio="none" focusable="false" aria-hidden="true">
       <rect x="-40" y="-20" width="1280" height="26" fill="#1d1d1b" />
       <path d={MENU_RIBBON.ink} fill="#1d1d1b" filter="url(#tear-ink-fuzz)" />
       <path d={MENU_RIBBON.paper} fill="url(#tear-fiber)" filter="url(#tear-ribbon)" />

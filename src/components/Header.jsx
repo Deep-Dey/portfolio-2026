@@ -36,6 +36,8 @@ export default function Header({ path = '/', onNavigate = () => {} }) {
   const [headOpen, setHeadOpen] = useState(false)
   const [active, setActive] = useState(work ? '/work/' : '/#top')
   const [shown, setShown] = useState(active)
+  const [shownWork, setShownWork] = useState(work)
+  const [axis, setAxis] = useState('y')
   const btnRef = useRef(null)
   const menuRef = useRef(null)
   const edgeRef = useRef(null)
@@ -44,25 +46,45 @@ export default function Header({ path = '/', onNavigate = () => {} }) {
   const toggle = () => setOpen((v) => !v)
 
   useLayoutEffect(() => {
+    const horiz = shownWork && window.matchMedia('(min-width: 901px)').matches
+    setAxis(horiz ? 'x' : 'y')
+  }, [shownWork])
+
+  useLayoutEffect(() => {
     const menu = menuRef.current
     const edge = edgeRef.current
+    const horiz = axis === 'x'
     const ctx = gsap.context(() => {
       const lines = menu.querySelectorAll('.menu__line-in')
       const socialsEls = menu.querySelectorAll('.menu__socials a')
       const activeLink = menu.querySelector('nav a.is-active')
       const tl = gsap.timeline({ paused: true })
-      tl.set([menu, edge], { visibility: 'visible', transformOrigin: '50% 0%' }, 0)
-        .fromTo(menu,
+      tl.set([menu, edge], { visibility: 'visible', transformOrigin: horiz ? '0% 0%' : '50% 0%' }, 0)
+      if (horiz) {
+        tl.set(edge, { rotation: -90, y: () => window.innerHeight * 1.04 }, 0)
+          .fromTo(menu,
+            { clipPath: 'inset(0% 100% 0% 0%)' },
+            { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.7, ease: 'power3.inOut' }, 0)
+          .fromTo(edge,
+            { x: -6 },
+            { x: () => window.innerWidth - 6, duration: 1.7, ease: 'power3.inOut' }, 0)
+          .fromTo(edge, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.18, ease: 'power1.out' }, 0)
+          .fromTo(edge, { scaleY: 0.35 }, { scaleY: 1, duration: 0.45, ease: 'power2.out' }, 0)
+          .to(edge, { scaleY: 0.3, duration: 0.75, ease: 'power1.inOut' }, 0.5)
+          .to(edge, { x: () => window.innerWidth + 20, duration: 0.6, ease: 'power2.in' }, 1.7)
+      } else {
+        tl.fromTo(menu,
           { clipPath: 'inset(0% 0% 100% 0%)' },
           { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.7, ease: 'power3.inOut' }, 0)
-        .fromTo(edge,
-          { y: -6 },
-          { y: () => window.innerHeight - 6, duration: 1.7, ease: 'power3.inOut' }, 0)
-        .fromTo(edge, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.18, ease: 'power1.out' }, 0)
-        .fromTo(edge, { scaleY: 0.35 }, { scaleY: 1, duration: 0.45, ease: 'power2.out' }, 0)
-        .to(edge, { scaleY: 0.3, duration: 0.75, ease: 'power1.inOut' }, 0.5)
-        .to(edge, { y: () => window.innerHeight + 20, duration: 0.6, ease: 'power2.in' }, 1.7)
-        .fromTo(lines,
+          .fromTo(edge,
+            { y: -6 },
+            { y: () => window.innerHeight - 6, duration: 1.7, ease: 'power3.inOut' }, 0)
+          .fromTo(edge, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.18, ease: 'power1.out' }, 0)
+          .fromTo(edge, { scaleY: 0.35 }, { scaleY: 1, duration: 0.45, ease: 'power2.out' }, 0)
+          .to(edge, { scaleY: 0.3, duration: 0.75, ease: 'power1.inOut' }, 0.5)
+          .to(edge, { y: () => window.innerHeight + 20, duration: 0.6, ease: 'power2.in' }, 1.7)
+      }
+      tl.fromTo(lines,
           { yPercent: 120, rotate: 6 },
           { yPercent: 0, rotate: 0, duration: 1.05, ease: 'power4.out', stagger: 0.09 }, 0.55)
         .fromTo(socialsEls,
@@ -77,11 +99,14 @@ export default function Header({ path = '/', onNavigate = () => {} }) {
       window.removeEventListener('resize', onResize)
       ctx.revert()
     }
-  }, [shown])
+  }, [shown, shownWork, axis])
 
   useEffect(() => {
-    if (!open && !headOpen) setShown(active)
-  }, [active, open, headOpen])
+    if (!open && !headOpen) {
+      setShown(active)
+      setShownWork(work)
+    }
+  }, [active, work, open, headOpen])
 
   useEffect(() => {
     const menu = menuRef.current
@@ -90,7 +115,9 @@ export default function Header({ path = '/', onNavigate = () => {} }) {
     if (reduced) {
       gsap.set(menu, {
         visibility: open ? 'visible' : 'hidden',
-        clipPath: open ? 'inset(0% 0% 0% 0%)' : 'inset(0% 0% 100% 0%)',
+        clipPath: open
+          ? 'inset(0% 0% 0% 0%)'
+          : axis === 'x' ? 'inset(0% 100% 0% 0%)' : 'inset(0% 0% 100% 0%)',
       })
       gsap.set(menu.querySelectorAll('.menu__line-in'), { yPercent: 0, rotate: 0 })
       gsap.set(menu.querySelectorAll('.menu__socials a'), { autoAlpha: 1, y: 0 })
@@ -105,7 +132,7 @@ export default function Header({ path = '/', onNavigate = () => {} }) {
     if (tl.time() > 1.7) tl.time(1.7)
     tl.eventCallback('onReverseComplete', () => setHeadOpen(false))
     tl.timeScale(1.6).reverse()
-  }, [open])
+  }, [open, axis])
 
   useEffect(() => {
     if (work) { setActive('/work/'); return }
@@ -145,7 +172,7 @@ export default function Header({ path = '/', onNavigate = () => {} }) {
 
   return (
     <>
-      <header className={`site-head${headOpen ? ' is-open' : ''}`}>
+      <header className={`site-head${work ? ' site-head--rail' : ''}${headOpen ? ' is-open' : ''}`}>
         <span className="site-head__place">Kolkata, IN</span>
         <a className="site-head__mark" href="/#top">The Daily Deploy</a>
         <button
@@ -163,7 +190,7 @@ export default function Header({ path = '/', onNavigate = () => {} }) {
       <div
         id="site-menu"
         ref={menuRef}
-        className={`menu${open ? ' open' : ''}`}
+        className={`menu${open ? ' open' : ''}${axis === 'x' ? ' menu--x' : ''}`}
         role="dialog"
         aria-modal="true"
         aria-label="Menu"
@@ -195,7 +222,7 @@ export default function Header({ path = '/', onNavigate = () => {} }) {
           ))}
         </div>
       </div>
-      <MenuTear ref={edgeRef} />
+      <MenuTear ref={edgeRef} horizontal={axis === 'x'} />
     </>
   )
 }

@@ -1,0 +1,12 @@
+import puppeteer from 'puppeteer-core'
+const b = await puppeteer.launch({ executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe', args: ['--headless=new'] })
+const p = await b.newPage()
+await p.setViewport({ width: 1440, height: 800 })
+await p.goto('http://localhost:5175/work/', { waitUntil: 'networkidle0' })
+await new Promise(r=>setTimeout(r,1800))
+const r = await p.evaluate(() => { const e = document.querySelectorAll('.wp__item')[1].getBoundingClientRect(); return {x:e.x, y:e.y} })
+await p.mouse.move(r.x + 20, r.y + 300)
+await new Promise(r=>setTimeout(r,500))
+const clip = await p.evaluate(() => { const e = document.querySelectorAll('.wp__item')[1].getBoundingClientRect(); return {x:e.x, y:0, width:e.width, height:800} })
+await p.screenshot({ path: '.shots/work-hover.png', clip })
+await b.close()

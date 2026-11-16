@@ -1,0 +1,10 @@
+import puppeteer from 'puppeteer-core'
+const b = await puppeteer.launch({ executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe', args: ['--headless=new'] })
+const p = await b.newPage()
+await p.setViewport({ width: 1440, height: 800 })
+await p.goto('http://localhost:5175/work/', { waitUntil: 'networkidle0' })
+await p.evaluate(() => document.fonts.ready)
+await new Promise(r=>setTimeout(r,1500))
+const c = await p.evaluate(() => { const r = document.querySelector('.wp__intro').getBoundingClientRect(); return r.height })
+await p.screenshot({ path: '.shots/work-intro.png', clip: {x:64, y:c*0.1, width:430, height:600} })
+await b.close()

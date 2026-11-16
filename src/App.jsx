@@ -138,10 +138,31 @@ export default function App({ path: initialPath = '/' }) {
 
   const work = isWorkPath(path)
 
+  useEffect(() => {
+    document.documentElement.classList.toggle('is-work', work)
+    return () => document.documentElement.classList.remove('is-work')
+  }, [work])
+
+  useEffect(() => {
+    if (!work) return
+    const onWheel = (e) => {
+      if (e.ctrlKey || !window.matchMedia('(min-width: 901px)').matches) return
+      if (document.getElementById('site-menu')?.classList.contains('open')) return
+      const scroller = e.target instanceof Element ? e.target.closest('.wp__panel-in') : null
+      if (scroller && scroller.scrollHeight > scroller.clientHeight + 1) return
+      const delta = e.deltaY + e.deltaX
+      if (!delta) return
+      e.preventDefault()
+      window.scrollBy({ left: delta })
+    }
+    window.addEventListener('wheel', onWheel, { passive: false })
+    return () => window.removeEventListener('wheel', onWheel)
+  }, [work])
+
   return (
     <>
       <Header path={path} onNavigate={navigate} />
-      <main id="top">
+      <main id="top" className={work ? 'main--work' : undefined}>
         {work ? (
           <WorkPage />
         ) : (
@@ -158,7 +179,7 @@ export default function App({ path: initialPath = '/' }) {
           </>
         )}
       </main>
-      <Footer />
+      {!work && <Footer />}
       <PageTear phase={tear} onSheetEnd={onSheetEnd} />
     </>
   )

@@ -1,5 +1,22 @@
 [
   {
+    "slug": "magicoweb",
+    "title": "MAGICOWEB",
+    "tag": "AI",
+    "image": "/projects/magicoweb.jpg",
+    "alt": "Home page of Magicoweb, an AI website generator",
+    "description": "An AI website generator: describe your vision and it produces a responsive, SEO-ready website in minutes.",
+    "links": [
+      {
+        "label": "Live site",
+        "url": "https://magicoweb.com/ai/"
+      }
+    ],
+    "openSource": false,
+    "featured": false,
+    "spotlight": false
+  },
+  {
     "slug": "wb-handloom",
     "title": "WB HANDLOOM PORTAL",
     "tag": "GOV",
@@ -7,21 +24,10 @@
     "alt": "Home page of the West Bengal Handloom and Khadi Weavers Financial Benefit Scheme portal",
     "description": "The Government of West Bengal portal where handloom weavers and khadi societies apply for financial benefit schemes. Spring Boot, PostgreSQL and vanilla JS.",
     "links": [
-      { "label": "Live site", "url": "https://handloom.wb.gov.in/" }
-    ],
-    "openSource": false,
-    "featured": true,
-    "spotlight": false
-  },
-  {
-    "slug": "anuprerna",
-    "title": "ANUPRERNA",
-    "tag": "E-COM",
-    "image": "/projects/anuprerna.jpg",
-    "alt": "Home page of Anuprerna, an online store for handwoven artisanal textiles",
-    "description": "An online store and B2B platform for handwoven textiles from West Bengal artisans: fabrics, apparel and homeware, with swatch orders and bulk customisation.",
-    "links": [
-      { "label": "Live site", "url": "https://anuprerna.com/" }
+      {
+        "label": "Live site",
+        "url": "https://handloom.wb.gov.in/"
+      }
     ],
     "openSource": false,
     "featured": true,
@@ -35,11 +41,103 @@
     "alt": "Sign-in page of Qubit Nexus, a chat-with-your-data platform",
     "description": "Chat with your data: LangChain agents answer analytics questions in SQL and build charts in Python, over Excel, CSV, PDF and PostgreSQL sources.",
     "links": [
-      { "label": "Live site", "url": "https://ai.qubitnexus.com/" }
+      {
+        "label": "Live site",
+        "url": "https://ai.qubitnexus.com/"
+      }
     ],
     "openSource": false,
     "featured": false,
     "spotlight": true
+  },
+  {
+    "slug": "lamartiniere",
+    "title": "LA MARTINIERE",
+    "tag": "EDU",
+    "image": "/projects/lamartiniere.jpg",
+    "alt": "Home page of La Martiniere Kolkata school website",
+    "description": "The website for La Martiniere Kolkata, covering the boys' and girls' schools: admissions, notices, vacancies and school life.",
+    "links": [
+      {
+        "label": "Live site",
+        "url": "https://lamartiniere.co/"
+      }
+    ],
+    "openSource": false,
+    "featured": false,
+    "spotlight": false
+  },
+  {
+    "slug": "anuprerna",
+    "title": "ANUPRERNA",
+    "tag": "E-COM",
+    "image": "/projects/anuprerna.jpg",
+    "alt": "Home page of Anuprerna, an online store for handwoven artisanal textiles",
+    "description": "An online store and B2B platform for handwoven textiles from West Bengal artisans: fabrics, apparel and homeware, with swatch orders and bulk customisation.",
+    "links": [
+      {
+        "label": "Live site",
+        "url": "https://anuprerna.com/"
+      }
+    ],
+    "openSource": false,
+    "featured": true,
+    "spotlight": false
+  },
+  {
+    "slug": "spectacle-hub",
+    "title": "SPECTACLE HUB",
+    "tag": "E-COM",
+    "image": "/projects/spectaclehub.png",
+    "alt": "Home page of Spectacle Hub, an online eyewear store",
+    "description": "An online eyewear store for spectacles, sunglasses and screen-protection glasses, with a guided 'Find Your Glass' flow.",
+    "links": [
+      {
+        "label": "Live site",
+        "url": "https://spectaclehub.shop/"
+      }
+    ],
+    "openSource": false,
+    "featured": false,
+    "spotlight": false
+  },
+  {
+    "slug": "bloomsight",
+    "title": "BLOOMSIGHT",
+    "tag": "NPM",
+    "image": "/projects/bloomsight.png",
+    "alt": "Log-in page of Bloomsight, a website analytics and marketing companion",
+    "description": "A website analytics and marketing companion: the ngx-bloomsight Angular SDK tracks events, page views and errors into the Bloomsight dashboard.",
+    "links": [
+      {
+        "label": "Live site",
+        "url": "https://footprint.bloomscorp.com/login"
+      },
+      {
+        "label": "npm",
+        "url": "https://www.npmjs.com/package/@bloomscorp/ngx-bloomsight"
+      }
+    ],
+    "openSource": true,
+    "featured": false,
+    "spotlight": false
+  },
+  {
+    "slug": "websoft-iot",
+    "title": "WEBSOFT IOT",
+    "tag": "IOT",
+    "image": "/projects/websoftiot.jpg",
+    "alt": "Home page of WebSoft IoT, an industrial automation and analytics platform",
+    "description": "A secure IoT platform for digital automation, asset management, data visualisation and analytics, enabling Industry 4.0.",
+    "links": [
+      {
+        "label": "Live site",
+        "url": "https://websoftiot.com"
+      }
+    ],
+    "openSource": false,
+    "featured": false,
+    "spotlight": false
   },
   {
     "slug": "bmx-transmission",
@@ -49,8 +147,14 @@
     "alt": "Angular artwork for the bmx-transmission package",
     "description": "An Angular utility library for API calls, with hooks for pre-execute, post-execute, success and failure.",
     "links": [
-      { "label": "npm", "url": "https://www.npmjs.com/package/bmx-transmission" },
-      { "label": "GitHub", "url": "https://github.com/bloomscorp/bmx-transmission" }
+      {
+        "label": "npm",
+        "url": "https://www.npmjs.com/package/bmx-transmission"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/bloomscorp/bmx-transmission"
+      }
     ],
     "openSource": true,
     "featured": true,
@@ -64,7 +168,10 @@
     "alt": "Express artwork for the bmx-onepiece starter",
     "description": "An Express and MongoDB starter with user management, security and logging already wired and documented.",
     "links": [
-      { "label": "GitHub", "url": "https://github.com/bloomscorp/bmx-onepiece" }
+      {
+        "label": "GitHub",
+        "url": "https://github.com/bloomscorp/bmx-onepiece"
+      }
     ],
     "openSource": true,
     "featured": true,
@@ -78,8 +185,14 @@
     "alt": "Python artwork for the python-sorter package",
     "description": "A Python library that sorts with several algorithms and reports how long each one took.",
     "links": [
-      { "label": "PyPI", "url": "https://pypi.org/project/python-sorter" },
-      { "label": "GitHub", "url": "https://github.com/Deep-Dey/python-sorter" }
+      {
+        "label": "PyPI",
+        "url": "https://pypi.org/project/python-sorter"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/Deep-Dey/python-sorter"
+      }
     ],
     "openSource": true,
     "featured": true,

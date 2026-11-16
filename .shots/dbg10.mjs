@@ -1,0 +1,16 @@
+import puppeteer from 'puppeteer-core'
+const b = await puppeteer.launch({ executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe', args: ['--headless=new'] })
+const p = await b.newPage()
+await p.setViewport({ width: 1440, height: 800 })
+await p.goto('http://localhost:5175/work/', { waitUntil: 'networkidle0' })
+await new Promise(r=>setTimeout(r,1800))
+await p.evaluate(() => document.querySelectorAll('.wp__spine')[1].click())
+await new Promise(r=>setTimeout(r,1600))
+console.log(await p.evaluate(() => {
+  const pin = document.querySelector('.wp__item.is-open .wp__panel-in').getBoundingClientRect()
+  const ph = document.querySelector('.wp__item.is-open .wp__photo').getBoundingClientRect()
+  const panel = document.querySelector('.wp__item.is-open .wp__panel').getBoundingClientRect()
+  return JSON.stringify({ panel: [panel.x, panel.width], pin: [pin.x, pin.width], photo: [ph.x, ph.width, ph.height] })
+}))
+await p.screenshot({ path: '.shots/work-open2.png' })
+await b.close()
