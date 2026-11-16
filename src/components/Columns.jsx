@@ -8,7 +8,7 @@ export default function Columns() {
       <div className="cols__main">
         <div className="cols__top">
           <section>
-            <h3>UPCOMING NEXT</h3>
+            <h3><span>UPCOMING</span> <span>NEXT</span></h3>
             <p className="body">Fresh entry – the next release is a build with language models.</p>
             <p className="tip"><b>TIP!</b> Write in to hear about it first.</p>
           </section>
