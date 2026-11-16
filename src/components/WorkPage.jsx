@@ -60,7 +60,7 @@ export default function WorkPage() {
                   <p className="wp__panel-desc">{p.description}</p>
                   <p className="wp__panel-links">
                     {p.links.map((l) => (
-                      <a key={l.url} href={l.url} target="_blank" rel="noopener">{l.label}</a>
+                      <a key={l.url} href={l.url} target="_blank" rel="noopener noreferrer">{l.label}</a>
                     ))}
                   </p>
                   <figure className="photo wp__photo">

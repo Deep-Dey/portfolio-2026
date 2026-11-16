@@ -14,7 +14,7 @@ export default function About() {
           <FitLine className="fit-line--big">DEVELOPER!</FitLine>
         </h2>
         <figure className="photo photo--tall photo--fit">
-          <img src={side} alt="Illustrated side profile of Deep Dey" width="1163" height="1352" loading="lazy" />
+          <img src={side} alt="Illustrated side profile of Deep Dey" width="1163" height="1352" loading="lazy" decoding="async" />
         </figure>
         <p className="about__bio dropcap">
           As a full stack developer, I build products from the database to the interface
@@ -25,7 +25,7 @@ export default function About() {
       <div className="about__right" data-reveal>
         <figure className="photo photo--wide">
           <img src={portrait} alt="Illustrated portrait of Deep Dey" width="1163" height="1352"
-               style={{ objectPosition: '50% 15%', transform: 'scale(1.6)' }} loading="lazy" />
+               style={{ objectPosition: '50% 15%', transform: 'scale(1.6)' }} loading="lazy" decoding="async" />
         </figure>
         <div className="about__roles">
           {roles.map((r, i) => <div key={i} className="role">{r}</div>)}

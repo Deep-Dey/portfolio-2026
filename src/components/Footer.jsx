@@ -1,8 +1,8 @@
 const socials = [
-  ['GITHUB', 'https://github.com/Deep-Dey'],
-  ['LINKEDIN', 'https://www.linkedin.com/in/deep-dey-20998/'],
-  ['X', 'https://twitter.com/iam_deep_dey'],
-  ['RESUME', 'https://drive.google.com/file/d/1TPk5doVfckY401QU9wQNklYObXTltPPx/view?usp=sharing'],
+  ['GITHUB', 'https://github.com/Deep-Dey', 'me noopener'],
+  ['LINKEDIN', 'https://www.linkedin.com/in/deep-dey-20998/', 'me noopener'],
+  ['X', 'https://twitter.com/iam_deep_dey', 'me noopener'],
+  ['RESUME', 'https://drive.google.com/file/d/1TPk5doVfckY401QU9wQNklYObXTltPPx/view?usp=sharing', 'noopener'],
 ]
 
 export default function Footer() {
@@ -14,7 +14,7 @@ export default function Footer() {
       </span>
       <a className="mail" href="mailto:mail@deepdey.dev">mail@deepdey.dev</a>
       <nav aria-label="Elsewhere">
-        {socials.map(([label, href]) => <a key={label} href={href}>{label}</a>)}
+        {socials.map(([label, href, rel]) => <a key={label} href={href} rel={rel}>{label}</a>)}
       </nav>
     </footer>
   )

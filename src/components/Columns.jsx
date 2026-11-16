@@ -7,18 +7,18 @@ export default function Columns() {
     <div className="cols" data-reveal>
       <div className="cols__main">
         <div className="cols__top">
-          <section>
+          <section aria-label="Upcoming">
             <h3><span>UPCOMING</span> <span>NEXT</span></h3>
             <p className="body">Fresh entry – the next release is a build with language models.</p>
             <p className="tip"><b>TIP!</b> Write in to hear about it first.</p>
           </section>
-          <section>
+          <section aria-label="Spotlight project">
             {spotlight && <Card p={spotlight} />}
           </section>
         </div>
         <figure className="photo cols__photo">
           <img src="/images/deep-dey-tech-stack.webp" alt="Illustration of Deep Dey's stack: Java, Spring Boot, React, Angular, Python, Docker, AWS and LLM tooling" width="1254" height="1254"
-               style={{ objectPosition: '50% 30%', transform: 'scale(1)' }} loading="lazy" />
+               style={{ objectPosition: '50% 30%', transform: 'scale(1)' }} loading="lazy" decoding="async" />
         </figure>
       </div>
       <div className="cols__side">

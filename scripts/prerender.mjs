@@ -124,6 +124,7 @@ const graph = (route, pageName) => {
           inLanguage: 'en',
           isPartOf: { '@id': SITE + '/#website' },
           mainEntity: { '@id': SITE + '/#person' },
+          hasPart: { '@id': SITE + '/#projects' },
           dateModified: buildDate,
         }
       : {
@@ -135,12 +136,24 @@ const graph = (route, pageName) => {
           isPartOf: { '@id': SITE + '/#website' },
           about: { '@id': SITE + '/#person' },
           mainEntity: { '@id': SITE + '/#projects' },
+          dateModified: buildDate,
         },
+    ...(route === '/'
+      ? []
+      : [{
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: SITE + '/' },
+            { '@type': 'ListItem', position: 2, name: 'Work', item: SITE + '/work/' },
+          ],
+        }]),
     person,
     {
       '@type': 'ItemList',
       '@id': SITE + '/#projects',
       name: 'Projects by Deep Dey',
+      inLanguage: 'en',
+      numberOfItems: projects.length,
       itemListElement: projects.map(projectItem),
     },
   ]
@@ -184,7 +197,11 @@ function headTags(route, cfg) {
     `<meta property="og:image" content="${SITE}/og-image.jpg" />`,
     `<meta property="og:image:width" content="1200" />`,
     `<meta property="og:image:height" content="630" />`,
+    `<meta property="og:image:type" content="image/jpeg" />`,
     `<meta property="og:image:alt" content="Deep Dey, Full Stack Developer and LLM Engineer, Kolkata" />`,
+    `<link rel="alternate" hreflang="en" href="${cfg.url}" />`,
+    `<link rel="alternate" hreflang="x-default" href="${cfg.url}" />`,
+    `<link rel="alternate" type="text/plain" href="${SITE}/llms.txt" title="LLM-readable summary" />`,
     ...cfg.extra,
     `<meta name="twitter:card" content="summary_large_image" />`,
     `<meta name="twitter:site" content="@iam_deep_dey" />`,
@@ -214,10 +231,16 @@ for (const [route, cfg] of Object.entries(ROUTES)) {
 }
 
 // ---------- sitemap.xml ----------
+const urlEntry = (loc, priority) => `  <url>
+    <loc>${loc}</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="${loc}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="${loc}"/>
+    <lastmod>${lastmod}</lastmod><changefreq>monthly</changefreq><priority>${priority}</priority>
+  </url>`
 writeFileSync(resolve(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>${SITE}/</loc><lastmod>${lastmod}</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
-  <url><loc>${SITE}/work/</loc><lastmod>${lastmod}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${urlEntry(SITE + '/', '1.0')}
+${urlEntry(SITE + '/work/', '0.8')}
 </urlset>
 `)
 
@@ -234,10 +257,12 @@ writeFileSync(resolve(dist, 'sitemap-images.xml'), `<?xml version="1.0" encoding
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>${SITE}/</loc>
+    <lastmod>${lastmod}</lastmod>
 ${[...siteImages, ...projectImages].map(imgUrl).join('\n')}
   </url>
   <url>
     <loc>${SITE}/work/</loc>
+    <lastmod>${lastmod}</lastmod>
 ${projectImages.map(imgUrl).join('\n')}
   </url>
 </urlset>

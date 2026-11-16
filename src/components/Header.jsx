@@ -6,15 +6,16 @@ const links = [
   ['Index', '/#top'],
   ['Work', '/work/'],
   ['About', '/#about'],
+  ['Contact', '/#contact'],
 ]
-const sections = ['/#about']
+const sections = ['/#about', '/#contact']
 
 export const isWorkPath = (path) => path.replace(/\/+$/, '') === '/work'
 const socials = [
-  ['GitHub', 'https://github.com/Deep-Dey'],
-  ['LinkedIn', 'https://www.linkedin.com/in/deep-dey-20998/'],
-  ['X', 'https://twitter.com/iam_deep_dey'],
-  ['Resume', 'https://drive.google.com/file/d/1TPk5doVfckY401QU9wQNklYObXTltPPx/view?usp=sharing'],
+  ['GitHub', 'https://github.com/Deep-Dey', 'me noopener'],
+  ['LinkedIn', 'https://www.linkedin.com/in/deep-dey-20998/', 'me noopener'],
+  ['X', 'https://twitter.com/iam_deep_dey', 'me noopener'],
+  ['Resume', 'https://drive.google.com/file/d/1TPk5doVfckY401QU9wQNklYObXTltPPx/view?usp=sharing', 'noopener'],
 ]
 
 function currentSection() {
@@ -217,8 +218,8 @@ export default function Header({ path = '/', onNavigate = () => {} }) {
           ))}
         </nav>
         <div className="menu__socials">
-          {socials.map(([label, href]) => (
-            <a key={href} href={href} tabIndex={open ? 0 : -1}>{label}</a>
+          {socials.map(([label, href, rel]) => (
+            <a key={href} href={href} rel={rel} tabIndex={open ? 0 : -1}>{label}</a>
           ))}
         </div>
       </div>

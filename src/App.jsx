@@ -15,12 +15,16 @@ const ROUTE_META = {
   '/': {
     title: 'Deep Dey | Full Stack Developer & LLM Engineer, Kolkata',
     canonical: 'https://deepdey.dev/',
+    description: 'Deep Dey is a full stack developer and LLM engineer in Kolkata, India, and Senior Project Lead at Websofttechs. Java, Spring Boot, MERN, Angular, Python and LangChain.',
   },
   '/work': {
     title: 'All Work | Deep Dey, Full Stack Developer & LLM Engineer',
     canonical: 'https://deepdey.dev/work/',
+    description: 'Projects by Deep Dey: the West Bengal Handloom portal (Spring Boot, PostgreSQL), Qubit Nexus LLM data chat, Anuprerna e-commerce, and open source on npm and PyPI.',
   },
 }
+
+const setMeta = (sel, content) => document.querySelector(sel)?.setAttribute('content', content)
 
 const normPath = (p) => p.replace(/\/+$/, '') || '/'
 const isRoute = (p) => normPath(p) in ROUTE_META
@@ -45,7 +49,12 @@ export default function App({ path: initialPath = '/' }) {
     if (meta) {
       document.title = meta.title
       document.querySelector('link[rel="canonical"]')?.setAttribute('href', meta.canonical)
-      document.querySelector('meta[property="og:url"]')?.setAttribute('content', meta.canonical)
+      setMeta('meta[name="description"]', meta.description)
+      setMeta('meta[property="og:url"]', meta.canonical)
+      setMeta('meta[property="og:title"]', meta.title)
+      setMeta('meta[property="og:description"]', meta.description)
+      setMeta('meta[name="twitter:title"]', meta.title)
+      setMeta('meta[name="twitter:description"]', meta.description)
     }
     if (push) window.history.pushState({}, '', pathname + hash)
     window.scrollTo(0, 0)

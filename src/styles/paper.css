@@ -476,7 +476,7 @@ html.is-tearing { overflow: hidden; }
 @media (min-width: 901px) {
   .menu nav { align-items: center; }
   .menu nav a { font-family: var(--font-canopee); font-stretch: normal; font-variation-settings: none; font-weight: 400;
-    font-size: clamp(5rem, 26vh, 15rem); }
+    font-size: clamp(5rem, 19vh, 15rem); }
 
   /* fixed left rail header on /work */
   .site-head--rail {
