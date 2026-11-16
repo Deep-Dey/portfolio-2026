@@ -18,7 +18,7 @@ export default function Columns() {
         </div>
         <figure className="photo cols__photo">
           <img src="/images/deep-dey-tech-stack.webp" alt="Illustration of Deep Dey's stack: Java, Spring Boot, React, Angular, Python, Docker, AWS and LLM tooling" width="1254" height="1254"
-               style={{ objectPosition: '50% 30%', transform: 'scale(1.1)' }} loading="lazy" />
+               style={{ objectPosition: '50% 30%', transform: 'scale(1)' }} loading="lazy" />
         </figure>
       </div>
       <div className="cols__side">

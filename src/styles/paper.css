@@ -288,6 +288,7 @@ main { padding-top: var(--header-h); }
   .about__left { padding-right: 0; }
   .about__roles .role { text-align: center; }
   .software { display: none; }
+  .cols__photo { display: none; }
   .cols, .cols__top { grid-template-columns: minmax(0, 1fr); }
   .cols__main { padding: 24px 0; }
   .cols__top > section:first-child { padding: 0 0 24px; }
