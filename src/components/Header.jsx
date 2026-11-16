@@ -4,9 +4,8 @@ const links = [
   ['Index', '/#top'],
   ['Work', '/work/'],
   ['About', '/#about'],
-  ['Contact', '/#contact'],
 ]
-const sections = ['/#about', '/#contact']
+const sections = ['/#about']
 
 export const isWorkPath = (path) => path.replace(/\/+$/, '') === '/work'
 const socials = [
@@ -19,7 +18,7 @@ const socials = [
 function currentSection() {
   if (isWorkPath(window.location.pathname)) return '/work/'
   const doc = document.documentElement
-  if (window.scrollY > 0 && window.innerHeight + window.scrollY >= doc.scrollHeight - 2) return '/#contact'
+  if (window.scrollY > 0 && window.innerHeight + window.scrollY >= doc.scrollHeight - 2) return sections[sections.length - 1]
   const mid = window.innerHeight / 2
   let active = '/#top'
   for (const href of sections) {
