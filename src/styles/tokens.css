@@ -64,5 +64,6 @@
 
   --dur-short: 220ms;
   --dur-long: 600ms;
+  --dur-menu: 1800ms;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
