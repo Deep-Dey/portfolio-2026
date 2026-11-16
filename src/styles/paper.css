@@ -447,17 +447,21 @@ html.is-tearing { overflow: hidden; }
   .main--work { padding-top: var(--header-h); }
   .wp { flex-direction: column; min-height: calc(100svh - var(--header-h)); }
   .wp__intro { width: auto; padding: 40px var(--gutter) 36px; gap: 24px; }
-  .wp__head { gap: 8px; }
-  .wp__inkbox { font-size: clamp(3.2rem, 17vw, 5rem); }
-  .wp__headrow { display: flex; }
-  .stamp--mini { width: 84px; margin-left: auto; margin-bottom: 2px; }
+  .wp__head { gap: 6px; width: 100%; }
+  .wp__inkbox { font-size: clamp(4.75rem, 23.5vw, 6.75rem); }
+  .wp__headrow { display: flex; width: 100%; gap: 10px; align-items: stretch; }
+  .wp__headrow .wp__inkbox { display: flex; flex: 1; align-items: center; justify-content: center; }
+  .stamp--mini { width: 96px; margin-left: 0; margin-bottom: 0; }
   .wp__spines { flex-direction: column; overflow: visible; }
   .wp__item { flex-direction: column; flex: none; border-left: 0; border-top: var(--rule-hair) solid var(--color-rule); }
   .wp__spine { flex: none; width: 100%; min-width: 0; min-height: 64px; flex-direction: row; align-items: center; padding: 0 var(--gutter); gap: 16px; }
   .wp__item.is-open .wp__spine { flex: none; }
   .wp__spine-title { writing-mode: horizontal-tb; font-size: var(--text-lg); text-align: left; }
   .wp__spine-tag { writing-mode: horizontal-tb; padding: 0.1em 0.45em 0; }
-  .wp__cta { width: auto; border-left: 0; border-top: var(--rule-hair) solid var(--color-rule); padding: 44px var(--gutter) 56px; }
+  .wp__cta { width: auto; border-left: 0; border-top: var(--rule-hair) solid var(--color-rule); padding: 44px var(--gutter) 56px; gap: 22px; justify-content: flex-start; }
+  .wp__cta-head { font-size: clamp(6.5rem, 42vw, 11rem); line-height: 0.9; }
+  .wp__cta-text { font-size: 1.5rem; }
+  .wp__cta-mail { align-self: flex-start; width: 76%; font-size: 2.25rem; }
   .wp__panel { flex: none; width: auto; display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--dur-long) var(--ease-out); }
   .wp__item.is-open .wp__panel { width: auto; grid-template-rows: 1fr; }
   .wp__panel-in {
@@ -465,7 +469,7 @@ html.is-tearing { overflow: hidden; }
     padding: 0 var(--gutter); border-left: 0;
     transform: translateY(12px);
   }
-  .wp__item.is-open .wp__panel-in { padding-block: 6px 28px; }
+  .wp__item.is-open .wp__panel-in { padding-block: 6px 0; }
   .wp__photo { margin-inline: calc(var(--gutter) * -1); width: calc(100% + var(--gutter) * 2); min-height: 200px; }
 }
 

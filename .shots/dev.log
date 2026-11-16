@@ -827,3 +827,50 @@ Port 5174 is in use, trying another one...
 [2m2:54:11 am[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.jsx[22m
 [2m2:55:53 am[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/WorkPage.jsx[22m
 [2m2:55:53 am[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles/paper.css[22m
+[2m3:00:09 am[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/WorkPage.jsx, /src/components/WorkRail.jsx, /src/components/Columns.jsx[22m
+[2m3:03:21 am[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mError[22m: ResizeObserver loop completed with undelivered notifications.
+[39m > ../../@vite/client:374:50
+
+[2m3:03:54 am[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles/paper.css[22m
+[2m3:03:58 am[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mError[22m: ResizeObserver loop completed with undelivered notifications.
+[39m > ../../@vite/client:374:50
+
+[2m3:05:19 am[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles/paper.css[22m
+[2m3:05:23 am[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mError[22m: ResizeObserver loop completed with undelivered notifications.
+[39m > ../../@vite/client:374:50
+
+[2m3:06:25 am[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles/paper.css[22m
+[2m3:06:30 am[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mError[22m: ResizeObserver loop completed with undelivered notifications.
+[39m > ../../@vite/client:374:50
+
+[2m3:06:52 am[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles/paper.css[22m
+[2m3:07:20 am[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles/paper.css[22m
+[2m3:07:30 am[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mError[22m: ResizeObserver loop completed with undelivered notifications.
+[39m > ../../@vite/client:374:50
+
+[2m3:08:22 am[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles/paper.css[22m
+[2m3:08:27 am[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mError[22m: ResizeObserver loop completed with undelivered notifications.
+[39m > ../../@vite/client:374:50
+
+[2m3:09:45 am[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles/paper.css[22m
+[2m3:09:53 am[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mError[22m: ResizeObserver loop completed with undelivered notifications.
+[39m > ../../@vite/client:374:50
+
+[2m3:13:04 am[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles/paper.css[22m
+[2m3:13:10 am[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mError[22m: ResizeObserver loop completed with undelivered notifications.
+[39m > ../../@vite/client:374:50
+
+[2m3:13:45 am[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles/paper.css[22m
+[2m3:13:51 am[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mError[22m: ResizeObserver loop completed with undelivered notifications.
+[39m > ../../@vite/client:374:50
+
+[2m3:13:57 am[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles/paper.css[22m
+[2m3:14:03 am[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mError[22m: ResizeObserver loop completed with undelivered notifications.
+[39m > ../../@vite/client:374:50
+
+[2m3:14:55 am[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles/paper.css[22m
+[2m3:15:02 am[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mError[22m: ResizeObserver loop completed with undelivered notifications.
+[39m > ../../@vite/client:374:50
+
+[2m3:15:37 am[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles/paper.css[22m
+[2m3:16:18 am[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles/paper.css[22m
