@@ -282,9 +282,11 @@ main { padding-top: var(--header-h); }
   .rail__center { order: -1; border-inline: 0; border-bottom: var(--rule-hair) solid var(--color-rule); }
   .rail__col + .rail__col { border-top: var(--rule-hair) solid var(--color-rule); }
   .about { grid-template-columns: minmax(0, 1fr); }
-  .paper-head { margin-inline: calc(var(--gutter) * -1); }
+  .paper-head { margin-inline: calc(var(--gutter) * -0.5); }
+  .cols__side .paper-head { margin-inline: 0; }
   .about__right { border-left: 0; border-top: var(--rule-hair) solid var(--color-rule); padding-left: 0; margin-top: 28px; padding-top: 28px; }
   .about__left { padding-right: 0; }
+  .about__roles .role { text-align: center; }
   .software { display: none; }
   .cols, .cols__top { grid-template-columns: minmax(0, 1fr); }
   .cols__main { padding: 24px 0; }
