@@ -38,7 +38,7 @@ export default function Header({ path = '/' }) {
   const toggle = () => setOpen((v) => !v)
 
   useEffect(() => {
-    if (work) return
+    if (work) { setActive('/work/'); return }
     let frame = 0
     const update = () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(() => setActive(currentSection())) }
     update()
@@ -49,7 +49,7 @@ export default function Header({ path = '/' }) {
       window.removeEventListener('scroll', update)
       window.removeEventListener('resize', update)
     }
-  }, [])
+  }, [work])
 
   useEffect(() => {
     if (!open) return

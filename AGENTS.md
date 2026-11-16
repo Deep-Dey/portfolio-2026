@@ -39,7 +39,8 @@ node scripts/make-og.mjs      # public/og-image.jpg (1200x630 social card)
 
 ## Pages and navigation
 
-- `/` is the one-page site; `/work` renders `src/components/WorkPage.jsx` (placeholder for the full project page). Routing is a pathname check in `App.jsx` (`isWorkPage()` from `Header.jsx`); no router dependency.
+- `/` is the one-page site; `/work` renders `src/components/WorkPage.jsx` (placeholder for the full project page). Routing is a pathname check in `App.jsx` (`isWorkPath()` from `Header.jsx`); no router dependency.
+- Route changes get a paper-tear transition (Miranda-style): `App.jsx` intercepts same-origin clicks to `/` and `/work/` via a delegated document listener, covers the screen with `src/components/PageTear.jsx` (an ink sheet with a procedurally generated, deterministic torn edge — SSR/hydration safe), swaps the route client-side (`pushState`), then lifts the sheet off. `popstate` tears too; same-page hash links and `prefers-reduced-motion` users get native navigation. Keep window/document access in effects — render stays pure for SSR + hydration.
 - Menu links: Index `/#top`, Work `/work`, About `/#about`, Contact `/#contact`. The struck-through item follows scroll position on `/` (Contact once the page bottom is reached) and is Work on `/work`.
 - Deployed on **Vercel**. Both routes are real prerendered files (`dist/index.html`, `dist/work/index.html`), so no SPA rewrite is needed. `vercel.json` sets the build/output, `trailingSlash: true` (so `/work` 308-redirects to the canonical `/work/`) and cache headers (`/assets/*` immutable, `/images` and `/projects` one week). `public/.htaccess` is only for an Apache host and is ignored by Vercel.
 
