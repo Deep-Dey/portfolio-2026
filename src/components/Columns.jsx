@@ -13,7 +13,7 @@ export default function Columns() {
             <p className="tip"><b>TIP!</b> Write in to hear about it first.</p>
           </section>
           <section>
-            {spotlight && <Card p={spotlight} compact />}
+            {spotlight && <Card p={spotlight} />}
           </section>
         </div>
         <figure className="photo cols__photo">

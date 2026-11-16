@@ -3,7 +3,7 @@ import FitLine from './FitLine'
 const portrait = '/images/deep-dey-portrait.webp'
 const side = '/images/deep-dey-side-profile.webp'
 
-const roles = ['FULL STACK DEVELOPER', 'LLM ENGINEER', 'BASED IN KOLKATA, INDIA']
+const roles = ['FULL STACK DEVELOPER', 'LLM ENGINEER', <>BASED IN <u>KOLKATA, INDIA</u></>]
 
 export default function About() {
   return (
@@ -18,7 +18,7 @@ export default function About() {
         </figure>
         <p className="about__bio dropcap">
           As a full stack developer, I build products from the database to the interface
-          with Java and Spring Boot, the MERN stack, Angular and Python,
+          with Spring Boot, Angular, React, Express and Python
           and lately I build language models into them, for teams and companies around the world.
         </p>
       </div>
@@ -28,7 +28,7 @@ export default function About() {
                style={{ objectPosition: '50% 15%', transform: 'scale(1.6)' }} loading="lazy" />
         </figure>
         <div className="about__roles">
-          {roles.map((r) => <div key={r} className="role">{r}</div>)}
+          {roles.map((r, i) => <div key={i} className="role">{r}</div>)}
         </div>
       </div>
     </section>

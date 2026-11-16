@@ -1,3 +1,25 @@
+@font-face {
+  font-family: "Canopee";
+  src: url("../assets/fonts/Canopee-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Editorial New";
+  src: url("../assets/fonts/PPEditorialNew-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Editorial New";
+  src: url("../assets/fonts/PPEditorialNew-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* paper portfolio palette */
   --color-paper: rgb(205, 198, 190);
@@ -11,6 +33,8 @@
   --font-display: "Roboto Serif", "Times New Roman", serif;
   --font-body: "Newsreader", Georgia, serif;
   --font-mark: "Pirata One", "Times New Roman", serif;
+  --font-canopee: "Canopee", sans-serif;
+  --font-editorial: "Editorial New", sans-serif;
   --font-mono: "Courier New", ui-monospace, monospace;
 
   --display-stretch: 50%;
@@ -25,7 +49,7 @@
   --text-giant: clamp(4rem, 11vw, 11rem);
   --text-counter: clamp(5rem, 9vw, 9rem);
 
-  --header-h: 68px;
+  --header-h: 60px;
   --gutter: 40px;
   --container: 1440px;
 

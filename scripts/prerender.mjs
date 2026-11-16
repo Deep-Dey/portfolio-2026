@@ -253,7 +253,7 @@ writeFileSync(resolve(dist, 'llms.txt'), `# Deep Dey
 
 ## About
 
-Deep Dey is a full stack developer and LLM engineer based in Kolkata, India. He works as Senior Project Lead at Websofttechs, building products with Java and Spring Boot, the MERN stack, Angular and Python, and shipping language-model features for teams and companies around the world. He holds an MTech in Computer Science from the University of Kalyani.
+Deep Dey is a full stack developer and LLM engineer based in Kolkata, India. He works as Senior Project Lead at Websofttechs, building products with Spring Boot, Angular, React, Express and Python, and shipping language-model features for teams and companies around the world. He holds an MTech in Computer Science from the University of Kalyani.
 
 ## Experience
 

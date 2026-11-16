@@ -77,7 +77,7 @@ Field meanings:
 | `image` | Path under `public/` — keep it `/projects/...`. |
 | `alt` | Image alt text. |
 | `description` | 2–3 line card text. |
-| `links` | Array of `{ label, url }` rendered as text links on rail cards. |
+| `links` | The first `url` is the card's click-through target; the whole card links to it in a new tab. |
 | `openSource` | Metadata only (exported as `openSourceCount`; not displayed). |
 | `featured` | The first two featured projects appear in the work row (`#work`). |
 | `spotlight` | The first `spotlight: true` item fills the middle card in the three-column section. Keep at most one. |
