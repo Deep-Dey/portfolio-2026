@@ -17,12 +17,8 @@ export default function Record() {
   return (
     <section className="record" aria-label="The record">
       <div className="record__top container">
+        <span className="counter__label">SHIPPING SINCE 2021</span>
         <h2 className="record__head">THE RECORD</h2>
-        <div className="counter record__exp">
-          <span className="counter__label">SHIPPING SINCE 2021</span>
-          <span className="counter__word">EXPERIENCE</span>
-          <span className="counter__num">5+</span>
-        </div>
       </div>
       {overflows && <p className="tip record__tip container"><b>TIP!</b> Scroll sideways to see the full record</p>}
       <div
